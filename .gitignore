@@ -1,0 +1,33 @@
+# Windows
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# PowerShell
+*.ps1~
+*.psm1~
+
+# Logs
+*.log
+*.txt
+
+# Test files
+test/
+temp/
+tmp/
+
+# Backup files
+*.bak
+*.backup
+*.old
+
+# Editor
+.vscode/
+.vs/
+*.swp
+*.swo
+*~
+
+# Claude Code
+.claude/
