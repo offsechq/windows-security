@@ -1,4 +1,4 @@
-# Windows Security Automation
+# Windows Security Hardening & Auditing
 
 ## Overview
 
