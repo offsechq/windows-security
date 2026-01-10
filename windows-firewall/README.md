@@ -2,6 +2,16 @@
 
 Controls Windows Firewall profiles (Domain, Private, Public) via registry.
 
+## Quick Usage (Run as Admin)
+
+```powershell
+# Enable firewall (all profiles)
+irm https://raw.githubusercontent.com/OFFSECHQ/windows-security/main/windows-firewall/enable-firewall.ps1 | iex
+
+# Disable firewall (all profiles)
+irm https://raw.githubusercontent.com/OFFSECHQ/windows-security/main/windows-firewall/disable-firewall.ps1 | iex
+```
+
 ## Registry Path
 
 `HKLM\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy`
@@ -15,13 +25,6 @@ Controls Windows Firewall profiles (Domain, Private, Public) via registry.
 | Key              | Values      |
 | ---------------- | ----------- |
 | `EnableFirewall` | 0=Off, 1=On |
-
-## Scripts
-
-| Script                 | Description                        |
-| ---------------------- | ---------------------------------- |
-| `enable-firewall.ps1`  | Enables firewall for all profiles  |
-| `disable-firewall.ps1` | Disables firewall for all profiles |
 
 ## References
 

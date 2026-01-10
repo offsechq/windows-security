@@ -2,20 +2,22 @@
 
 Controls Windows Defender SmartScreen via registry.
 
+## Quick Usage (Run as Admin)
+
+```powershell
+# Enable SmartScreen
+irm https://raw.githubusercontent.com/OFFSECHQ/windows-security/main/smartscreen/enable-smartscreen.ps1 | iex
+
+# Disable SmartScreen
+irm https://raw.githubusercontent.com/OFFSECHQ/windows-security/main/smartscreen/disable-smartscreen.ps1 | iex
+```
+
 ## Registry Paths
 
-| Path                                                      | Key                     | Values                      |
-| --------------------------------------------------------- | ----------------------- | --------------------------- |
-| `HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer` | `SmartScreenEnabled`    | Off/Warn/Block/RequireAdmin |
-| `HKLM\SOFTWARE\Policies\Microsoft\Windows\System`         | `EnableSmartScreen`     | 0=Off, 1=On                 |
-| `HKLM\SOFTWARE\Policies\Microsoft\Windows\System`         | `ShellSmartScreenLevel` | Warn/Block                  |
-
-## Scripts
-
-| Script                    | Description                         |
-| ------------------------- | ----------------------------------- |
-| `enable-smartscreen.ps1`  | Enables SmartScreen with Block mode |
-| `disable-smartscreen.ps1` | Disables SmartScreen                |
+| Path                                                      | Key                  | Values         |
+| --------------------------------------------------------- | -------------------- | -------------- |
+| `HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer` | `SmartScreenEnabled` | Off/Warn/Block |
+| `HKLM\SOFTWARE\Policies\Microsoft\Windows\System`         | `EnableSmartScreen`  | 0=Off, 1=On    |
 
 ## References
 

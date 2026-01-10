@@ -1,47 +1,29 @@
-# VBS Security Scripts
+# Virtualization-Based Security (VBS)
 
-Manage Windows Virtualization-Based Security features via PowerShell.
+Controls VBS, HVCI, Credential Guard, and related features via registry.
 
-## Structure
-
-```
-virtualization-based-security/
-├── enable-vbs.ps1   # Enable all VBS features
-└── disable-vbs.ps1  # Disable all VBS features
-```
-
-## Features Managed
-
-- Virtualization-Based Security (VBS)
-- Credential Guard (UEFI-locked)
-- HVCI / Memory Integrity
-- Kernel-mode Hardware-enforced Stack Protection
-- System Guard Secure Launch
-- Kernel DMA Protection
-- Vulnerable Driver Blocklist
-- Code Integrity Policy Enforcement
-
-## Usage
-
-Run as **Administrator**:
+## Quick Usage (Run as Admin)
 
 ```powershell
-# Enable all VBS features
-.\enable-vbs.ps1
+# Enable VBS features
+irm https://raw.githubusercontent.com/OFFSECHQ/windows-security/main/virtualization-based-security/enable-vbs.ps1 | iex
 
-# Disable all VBS features (requires "YES" confirmation)
-.\disable-vbs.ps1
+# Disable VBS features
+irm https://raw.githubusercontent.com/OFFSECHQ/windows-security/main/virtualization-based-security/disable-vbs.ps1 | iex
 ```
 
-## Requirements
+## Features Controlled
 
-- Windows 10/11
-- UEFI with Secure Boot enabled
-- CPU virtualization (Intel VT-x / AMD-V) enabled in BIOS
-- TPM 2.0 (recommended)
+- Virtualization-Based Security (VBS)
+- Hypervisor-protected Code Integrity (HVCI)
+- Credential Guard
+- System Guard
+- Kernel Shadow Stacks
+- Kernel DMA Protection
+- Vulnerable Driver Blocklist
 
-## Notes
+## References
 
-- **Restart required** after running either script
-- UEFI-locked features may require [additional steps](https://learn.microsoft.com/en-us/windows/security/identity-protection/credential-guard/configure) to fully disable
-- Verify with: `Get-ComputerInfo | Select-Object DeviceGuard*`
+- [VBS Overview](https://learn.microsoft.com/en-us/windows-hardware/design/device-experiences/oem-vbs)
+- [Credential Guard](https://learn.microsoft.com/en-us/windows/security/identity-protection/credential-guard/)
+- [Memory Integrity](https://learn.microsoft.com/en-us/windows-hardware/drivers/install/enabling-memory-integrity)

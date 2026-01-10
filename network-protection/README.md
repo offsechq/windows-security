@@ -2,6 +2,16 @@
 
 Controls Windows Defender Network Protection via registry.
 
+## Quick Usage (Run as Admin)
+
+```powershell
+# Enable network protection
+irm https://raw.githubusercontent.com/OFFSECHQ/windows-security/main/network-protection/enable-network-protection.ps1 | iex
+
+# Disable network protection
+irm https://raw.githubusercontent.com/OFFSECHQ/windows-security/main/network-protection/disable-network-protection.ps1 | iex
+```
+
 ## Registry Path
 
 `HKLM\SOFTWARE\Microsoft\Windows Defender\Windows Defender Exploit Guard\Network Protection`
@@ -11,13 +21,6 @@ Controls Windows Defender Network Protection via registry.
 | 0     | Disabled        |
 | 1     | Enabled (Block) |
 | 2     | Audit Mode      |
-
-## Scripts
-
-| Script                           | Description                 |
-| -------------------------------- | --------------------------- |
-| `enable-network-protection.ps1`  | Enables network protection  |
-| `disable-network-protection.ps1` | Disables network protection |
 
 ## References
 

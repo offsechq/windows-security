@@ -2,6 +2,16 @@
 
 Controls Windows Defender Tamper Protection via registry.
 
+## Quick Usage (Run as Admin)
+
+```powershell
+# Enable tamper protection
+irm https://raw.githubusercontent.com/OFFSECHQ/windows-security/main/tamper-protection/enable-tamper-protection.ps1 | iex
+
+# Disable tamper protection
+irm https://raw.githubusercontent.com/OFFSECHQ/windows-security/main/tamper-protection/disable-tamper-protection.ps1 | iex
+```
+
 ## Registry Path
 
 `HKLM\SOFTWARE\Microsoft\Windows Defender\Features`
@@ -10,19 +20,11 @@ Controls Windows Defender Tamper Protection via registry.
 | ------------------ | ----------------------- |
 | `TamperProtection` | 0/4=Disabled, 5=Enabled |
 
-## Important Notes
+## Important
 
-- Tamper Protection protects Defender settings from unauthorized changes
-- When enabled, registry changes to Defender settings may be blocked
-- Must be disabled via Windows Security UI before registry changes work
-- Enterprise management via Microsoft Defender for Endpoint
-
-## Scripts
-
-| Script                          | Description                           |
-| ------------------------------- | ------------------------------------- |
-| `enable-tamper-protection.ps1`  | Enables tamper protection             |
-| `disable-tamper-protection.ps1` | Attempts to disable tamper protection |
+- Tamper Protection blocks registry changes to Defender settings when active
+- Must often be disabled via Windows Security UI first
+- Enterprise management available via Microsoft Defender for Endpoint
 
 ## References
 

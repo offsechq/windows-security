@@ -2,6 +2,16 @@
 
 Controls Local Security Authority (LSA) protection via registry.
 
+## Quick Usage (Run as Admin)
+
+```powershell
+# Enable LSA protection
+irm https://raw.githubusercontent.com/OFFSECHQ/windows-security/main/lsa-protection/enable-lsa-protection.ps1 | iex
+
+# Disable LSA protection
+irm https://raw.githubusercontent.com/OFFSECHQ/windows-security/main/lsa-protection/disable-lsa-protection.ps1 | iex
+```
+
 ## Registry Path
 
 `HKLM\SYSTEM\CurrentControlSet\Control\Lsa`
@@ -18,12 +28,7 @@ LSA Protection runs lsass.exe as a Protected Process Light (PPL), preventing:
 - Code injection into LSASS
 - Memory dumping of credentials
 
-## Scripts
-
-| Script                       | Description                 |
-| ---------------------------- | --------------------------- |
-| `enable-lsa-protection.ps1`  | Enables LSA PPL protection  |
-| `disable-lsa-protection.ps1` | Disables LSA PPL protection |
+**Restart required after changes.**
 
 ## References
 
