@@ -5,11 +5,11 @@ PowerShell scripts for configuring Windows security features via registry. Run d
 ## Quick Usage (Run as Admin)
 
 ```powershell
-# Example: Enable ASR rules
-irm https://raw.githubusercontent.com/OFFSECHQ/windows-security/main/attack-surface-reduction/enable-asr.ps1 | iex
+# Enable Everything (Tamper Protection last)
+$b="https://raw.githubusercontent.com/OFFSECHQ/windows-security/main"; "attack-surface-reduction/enable-asr.ps1","cloud-protection/enable-cloud-protection.ps1","exploit-protection/enable-exploit-protection.ps1","lsa-protection/enable-lsa-protection.ps1","network-protection/enable-network-protection.ps1","realtime-protection/enable-realtime-protection.ps1","smartscreen/enable-smartscreen.ps1","virtualization-based-security/enable-vbs.ps1","windows-firewall/enable-firewall.ps1","tamper-protection/enable-tamper-protection.ps1" | %{irm "$b/$_" | iex}
 
-# Example: Disable VBS
-irm https://raw.githubusercontent.com/OFFSECHQ/windows-security/main/virtualization-based-security/disable-vbs.ps1 | iex
+# Disable Everything (Tamper Protection first)
+$b="https://raw.githubusercontent.com/OFFSECHQ/windows-security/main"; "tamper-protection/disable-tamper-protection.ps1","attack-surface-reduction/disable-asr.ps1","cloud-protection/disable-cloud-protection.ps1","exploit-protection/disable-exploit-protection.ps1","lsa-protection/disable-lsa-protection.ps1","network-protection/disable-network-protection.ps1","realtime-protection/disable-realtime-protection.ps1","smartscreen/disable-smartscreen.ps1","virtualization-based-security/disable-vbs.ps1","windows-firewall/disable-firewall.ps1" | %{irm "$b/$_" | iex}
 ```
 
 ## Modules
